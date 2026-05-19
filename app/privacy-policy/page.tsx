@@ -276,7 +276,6 @@ export default function PrivacyPolicy() {
                     </div>
                   ))}
 
-                  {/* Contact details for last section */}
                   {section.id === "contact" && (
                     <div className={styles.contactCard}>
                       <div className={styles.contactRow}>

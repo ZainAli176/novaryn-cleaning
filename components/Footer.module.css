@@ -110,3 +110,37 @@
 }
 
 /* ... keep your existing .links, .link, .divider, .copy styles ... */
+/* Social Media Styles */
+.socialContainer {
+  margin: 30px 0;
+}
+
+.socialTitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.socialIcon {
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+  padding: 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.socialIcon:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-3px);
+}

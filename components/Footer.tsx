@@ -1,6 +1,12 @@
 "use client";
 
 import styles from "./Footer.module.css";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaPinterestP,
+  FaXTwitter,
+} from "react-icons/fa6";
 
 const links = [
   { href: "#services", label: "Services" },
@@ -11,6 +17,29 @@ const links = [
 ];
 
 const legalLinks = [{ href: "/privacy-policy", label: "Privacy Policy" }];
+
+const socialLinks = [
+  {
+    href: "https://x.com/NovarynClean",
+    icon: <FaXTwitter size={20} />,
+    label: "X (Twitter)",
+  },
+  {
+    href: "https://www.instagram.com/novaryncleaning",
+    icon: <FaInstagram size={20} />,
+    label: "Instagram",
+  },
+  {
+    href: "https://www.facebook.com/share/1BByfVd2HH/",
+    icon: <FaFacebookF size={20} />,
+    label: "Facebook",
+  },
+  {
+    href: "https://www.pinterest.com/novarync/",
+    icon: <FaPinterestP size={20} />,
+    label: "Pinterest",
+  },
+];
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -24,7 +53,7 @@ export default function Footer() {
         </p>
       </div>
 
-      {/* Google Map - Working Version */}
+      {/* Google Map */}
       <div className={styles.mapContainer}>
         <iframe
           src="https://www.google.com/maps?q=227+Mitchell+St+SW+%233b%2C+Atlanta%2C+GA+30303&output=embed"
@@ -34,7 +63,7 @@ export default function Footer() {
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          title="Novaryn Cleaning Location in Atlanta"
+          title="Novaryn Cleaning Location"
         ></iframe>
       </div>
 
@@ -46,8 +75,27 @@ export default function Footer() {
           rel="noopener noreferrer"
           className={styles.gmbButton}
         >
-          ⭐ View Our Google Business Profile & Reviews
+          ⭐ View on Google • Reviews
         </a>
+      </div>
+
+      {/* Social Media Links */}
+      <div className={styles.socialContainer}>
+        <p className={styles.socialTitle}>Follow Us</p>
+        <div className={styles.socialLinks}>
+          {socialLinks.map((social) => (
+            <a
+              key={social.href}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.socialIcon}
+              aria-label={social.label}
+            >
+              {social.icon}
+            </a>
+          ))}
+        </div>
       </div>
 
       <nav className={styles.links} aria-label="Footer navigation">
