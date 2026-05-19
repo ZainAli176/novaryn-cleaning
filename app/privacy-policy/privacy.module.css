@@ -1,0 +1,258 @@
+.hero {
+  background: linear-gradient(135deg, #ebf4ff 0%, #f5f9ff 50%, #e8f2fd 100%);
+  padding: 72px 5% 60px;
+  border-bottom: 1px solid var(--border);
+}
+
+.heroInner {
+  max-width: 700px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+.heroTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.heroSub {
+  font-size: 17px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.lastUpdated {
+  font-size: 13px;
+  color: var(--muted);
+  background: white;
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+}
+
+/* Layout */
+.contentWrap {
+  padding: 60px 5% 80px;
+  background: var(--white);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 52px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* Table of contents */
+.toc {
+  position: sticky;
+  top: 88px;
+}
+
+.tocCard {
+  background: var(--sky);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 20px;
+}
+
+.tocTitle {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.tocList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0;
+}
+
+.tocList li {
+  counter-increment: none;
+}
+
+.tocLink {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  padding: 5px 8px;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+  line-height: 1.4;
+}
+
+.tocLink:hover {
+  background: white;
+  color: var(--blue);
+}
+
+/* Article */
+.article {
+  min-width: 0;
+}
+
+.intro {
+  background: var(--blue-light);
+  border-left: 3px solid var(--blue);
+  border-radius: 0 12px 12px 0;
+  padding: 20px 24px;
+  margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.intro p {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.75;
+}
+
+.section {
+  margin-bottom: 52px;
+  scroll-margin-top: 88px;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.sectionTitle {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.block {
+  margin-bottom: 18px;
+}
+
+.subtitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.body {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* Contact card in last section */
+.contactCard {
+  background: var(--sky);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contactRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.contactIcon {
+  font-size: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.contactRow strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.contactRow p {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .toc {
+    position: static;
+  }
+
+  .tocCard {
+    padding: 16px;
+  }
+
+  .tocList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .tocLink {
+    white-space: nowrap;
+    font-size: 12px;
+    padding: 4px 10px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+  }
+
+  .tocLink:hover {
+    background: var(--blue-light);
+    border-color: var(--blue);
+  }
+}
+
+@media (max-width: 560px) {
+  .hero {
+    padding: 52px 5% 44px;
+  }
+
+  .contentWrap {
+    padding: 40px 5% 60px;
+  }
+
+  .sectionTitle {
+    font-size: 19px;
+  }
+
+  .intro {
+    padding: 16px 18px;
+  }
+}

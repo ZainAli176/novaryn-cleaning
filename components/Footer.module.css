@@ -1,0 +1,112 @@
+.footer {
+  background: #0a1628;
+  padding: 48px 5% 28px;
+  text-align: center;
+}
+
+.top {
+  margin-bottom: 20px;
+}
+
+.logoName {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+}
+
+.address {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 6px;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin: 14px 0;
+}
+
+.link {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.2s;
+}
+
+.link:hover {
+  color: white;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 20px 0;
+}
+
+.copy {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+}
+.mapContainer {
+  margin: 32px auto;
+  max-width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.gmbLink {
+  margin: 20px 0 30px;
+  text-align: center;
+}
+
+.gmbButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #4285f4;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+}
+
+.gmbButton:hover {
+  background: #3367d6;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(66, 133, 244, 0.4);
+}
+
+/* Existing styles remain the same */
+.footer {
+  background: #0a1628;
+  padding: 48px 5% 32px;
+  text-align: center;
+}
+
+.top {
+  margin-bottom: 16px;
+}
+
+.logoName {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+}
+
+.address {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+/* ... keep your existing .links, .link, .divider, .copy styles ... */
