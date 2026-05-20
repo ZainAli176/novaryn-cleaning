@@ -12,7 +12,23 @@
   margin: 0 auto;
 }
 
-.visualSide {}
+/* Add or update these classes in your About.module.css file */
+
+.imgBlock {
+  width: 100%; /* Takes up the full width of its parent container */
+  max-width: 500px; /* Adjust this number to whatever size you want the image to max out at */
+  height: auto; /* Keeps the container aspect ratio proportional */
+  position: relative;
+  border-radius: 12px; /* Optional: smooths out corners if you like that look */
+  overflow: hidden;
+}
+
+.imgBlock img {
+  width: 100%; /* Forces the image to fill the container */
+  height: 100%; /* Forces the image to fill the container */
+  object-fit: cover; /* Ensures the image doesn't stretch or distort */
+  display: block; /* Removes default inline bottom spacing */
+}
 
 .imgBlock {
   background: linear-gradient(145deg, #1a6fd4, #4a90e2);
@@ -71,7 +87,8 @@
   margin-top: 4px;
 }
 
-.textSide {}
+.textSide {
+}
 
 .label {
   font-size: 13px;

@@ -279,6 +279,9 @@
   margin: 0 auto;
 }
 
+.whatIsText {
+}
+
 .whyChooseCard {
   background: var(--sky);
   border: 1px solid var(--border);
@@ -399,6 +402,9 @@
   font-family: var(--font-serif);
   margin-bottom: 14px;
   flex-shrink: 0;
+}
+
+.stepContent {
 }
 
 .stepTitle {

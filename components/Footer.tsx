@@ -1,106 +1,56 @@
 "use client";
 
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import styles from "./Footer.module.css";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaPinterestP,
-  FaXTwitter,
-} from "react-icons/fa6";
 
-const links = [
-  { href: "#services", label: "Services" },
-  { href: "#about", label: "About" },
-  { href: "#testimonials", label: "Reviews" },
-  { href: "#faq", label: "FAQ" },
-  { href: "#contact", label: "Contact" },
+const navLinks = [
+  { href: "/#services", label: "Services" },
+  { href: "/#about", label: "About" },
+  { href: "/#testimonials", label: "Reviews" },
+  { href: "/#faq", label: "FAQ" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 const legalLinks = [{ href: "/privacy-policy", label: "Privacy Policy" }];
 
-const socialLinks = [
-  {
-    href: "https://x.com/NovarynClean",
-    icon: <FaXTwitter size={20} />,
-    label: "X (Twitter)",
-  },
-  {
-    href: "https://www.instagram.com/novaryncleaning",
-    icon: <FaInstagram size={20} />,
-    label: "Instagram",
-  },
-  {
-    href: "https://www.facebook.com/share/1BByfVd2HH/",
-    icon: <FaFacebookF size={20} />,
-    label: "Facebook",
-  },
-  {
-    href: "https://www.pinterest.com/novarync/",
-    icon: <FaPinterestP size={20} />,
-    label: "Pinterest",
-  },
-];
-
 export default function Footer() {
   const year = new Date().getFullYear();
+  const pathname = usePathname();
+
+  const handleAnchorClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    // If we're already on the homepage, smooth scroll instead of navigating
+    if (pathname === "/" && href.startsWith("/#")) {
+      e.preventDefault();
+      const id = href.replace("/#", "");
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+    // Otherwise let Next.js navigate to /#section normally
+  };
 
   return (
     <footer className={styles.footer}>
       <div className={styles.top}>
-        <span className={styles.logoName}>Novaryn Cleaning</span>
+        <Link href="/" className={styles.logoName}>
+          Novaryn Cleaning
+        </Link>
         <p className={styles.address}>
-          227 Mitchell St SW #3b, Atlanta, GA 30303, United States
+          227 Mitchell St SW #3b, Atlanta, GA 30303
         </p>
       </div>
 
-      {/* Google Map */}
-      <div className={styles.mapContainer}>
-        <iframe
-          src="https://www.google.com/maps?q=227+Mitchell+St+SW+%233b%2C+Atlanta%2C+GA+30303&output=embed"
-          width="100%"
-          height="320"
-          style={{ border: 0 }}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          title="Novaryn Cleaning Location"
-        ></iframe>
-      </div>
-
-      {/* GMB Link */}
-      <div className={styles.gmbLink}>
-        <a
-          href="https://share.google/7CLmqcGpXxqsc9pNX"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.gmbButton}
-        >
-          ⭐ View on Google • Reviews
-        </a>
-      </div>
-
-      {/* Social Media Links */}
-      <div className={styles.socialContainer}>
-        <p className={styles.socialTitle}>Follow Us</p>
-        <div className={styles.socialLinks}>
-          {socialLinks.map((social) => (
-            <a
-              key={social.href}
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.socialIcon}
-              aria-label={social.label}
-            >
-              {social.icon}
-            </a>
-          ))}
-        </div>
-      </div>
-
       <nav className={styles.links} aria-label="Footer navigation">
-        {links.map((l) => (
-          <a key={l.href} href={l.href} className={styles.link}>
+        {navLinks.map((l) => (
+          <a
+            key={l.href}
+            href={l.href}
+            className={styles.link}
+            onClick={(e) => handleAnchorClick(e, l.href)}
+          >
             {l.label}
           </a>
         ))}
@@ -110,15 +60,15 @@ export default function Footer() {
 
       <nav className={styles.legalLinks} aria-label="Legal navigation">
         {legalLinks.map((l) => (
-          <a key={l.href} href={l.href} className={styles.legalLink}>
+          <Link key={l.href} href={l.href} className={styles.legalLink}>
             {l.label}
-          </a>
+          </Link>
         ))}
       </nav>
 
       <p className={styles.copy}>
-        © {year} Novaryn Cleaning. All rights reserved. <br />
-        Proudly serving Atlanta, GA and surrounding areas.
+        © {year} Novaryn Cleaning. All rights reserved. Proudly serving Atlanta,
+        GA.
       </p>
     </footer>
   );

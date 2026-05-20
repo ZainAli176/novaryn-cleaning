@@ -22,11 +22,7 @@ export default function About() {
         <div className={styles.visualSide}>
           <div className={styles.imgBlock}>
             <span className={styles.imgEmoji}>🫧</span>
-            <p className={styles.imgText}>
-              Cleaning with
-              <br />
-              Purpose & Pride
-            </p>
+            <img src="van.png" alt="Novaryn Cleaning Van" />
           </div>
           <div className={styles.pillars}>
             {pillars.map((p) => (
