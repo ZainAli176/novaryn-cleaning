@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import styles from "./services.module.css";
@@ -90,7 +91,7 @@ export default function ServicesIndex() {
         <section className={styles.gridSection}>
           <div className={styles.grid}>
             {services.map((s) => (
-              <a key={s.href} href={s.href} className={styles.card}>
+              <Link key={s.href} href={s.href} className={styles.card}>
                 <div className={styles.cardTop}>
                   <div className={styles.cardIcon}>{s.icon}</div>
                   {s.badge && (
@@ -105,7 +106,7 @@ export default function ServicesIndex() {
                 <h2 className={styles.cardTitle}>{s.title}</h2>
                 <p className={styles.cardDesc}>{s.desc}</p>
                 <span className={styles.cardLink}>Learn More →</span>
-              </a>
+              </Link>
             ))}
           </div>
         </section>
@@ -113,14 +114,16 @@ export default function ServicesIndex() {
         {/* CTA */}
         <section className={styles.cta}>
           <div className={styles.ctaInner}>
-            <h2 className={styles.ctaTitle}>Not Sure Which Service You Need?</h2>
+            <h2 className={styles.ctaTitle}>
+              Not Sure Which Service You Need?
+            </h2>
             <p className={styles.ctaSub}>
-              Tell us about your space and we&apos;ll recommend the right service
-              and give you a free quote — no obligation.
+              Tell us about your space and we&apos;ll recommend the right
+              service and give you a free quote — no obligation.
             </p>
-            <a href="/#contact" className={styles.ctaBtn}>
+            <Link href="/#contact" className={styles.ctaBtn}>
               Get a Free Quote
-            </a>
+            </Link>
           </div>
         </section>
       </main>

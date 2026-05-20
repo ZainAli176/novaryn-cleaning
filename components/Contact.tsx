@@ -9,6 +9,7 @@ const contactInfo = [
     title: "Address",
     lines: ["227 Mitchell St SW #3b", "Atlanta, GA 30303"],
   },
+  { icon: "📞", title: "Phone", lines: ["(404) 555-0192"] },
   { icon: "✉️", title: "Email", lines: ["Novaryncleaning@gmail.com"] },
   {
     icon: "🕐",
@@ -48,48 +49,30 @@ export default function Contact() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
     >,
-  ) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
+  ) => setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setError("");
 
     try {
-      const response = await fetch(
-        "https://formsubmit.co/Novaryncleaning@gmail.com",
-        {
-          method: "POST",
-          body: new FormData(e.target as HTMLFormElement),
-          headers: {
-            Accept: "application/json",
-          },
-        },
-      );
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
 
-      if (response.ok) {
-        setSubmitted(true);
-        // Reset form
-        setForm({
-          firstName: "",
-          lastName: "",
-          phone: "",
-          zip: "",
-          email: "",
-          service: "",
-          message: "",
-        });
-      } else {
-        alert("Failed to send. Please try again.");
-      }
-    } catch (error) {
-      alert("Something went wrong. Please check your internet and try again.");
+      if (!res.ok) throw new Error("Failed to send");
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please try again or call us directly.");
     } finally {
       setLoading(false);
     }
@@ -105,7 +88,6 @@ export default function Contact() {
             Ready for a cleaner home? Fill out the form and we&apos;ll get back
             to you within 2 hours.
           </p>
-
           <div className={styles.infoItems}>
             {contactInfo.map((item) => (
               <div key={item.title} className={styles.infoItem}>
@@ -129,29 +111,14 @@ export default function Contact() {
           {submitted ? (
             <div className={styles.success}>
               <div className={styles.successIcon}>✅</div>
-              <h4>Request Sent Successfully!</h4>
-              <p>We&apos;ll contact you within 2 hours.</p>
-              <button
-                onClick={() => setSubmitted(false)}
-                className={styles.submit}
-              >
-                Send Another Request
-              </button>
+              <h4>Request Sent!</h4>
+              <p>
+                We&apos;ve received your booking request and will get back to
+                you within 2 hours.
+              </p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className={styles.form} noValidate>
-              <input
-                type="hidden"
-                name="_subject"
-                value="New Cleaning Request from Website!"
-              />
-              <input type="hidden" name="_captcha" value="false" />
-              <input
-                type="hidden"
-                name="_next"
-                value="https://yourdomain.com"
-              />{" "}
-              {/* Optional */}
               <div className={styles.row}>
                 <div className={styles.group}>
                   <label htmlFor="firstName">First Name</label>
@@ -174,7 +141,6 @@ export default function Contact() {
                     placeholder="Smith"
                     value={form.lastName}
                     onChange={handleChange}
-                    required
                   />
                 </div>
               </div>
@@ -200,7 +166,6 @@ export default function Contact() {
                     placeholder="30303"
                     value={form.zip}
                     onChange={handleChange}
-                    required
                   />
                 </div>
               </div>
@@ -244,12 +209,13 @@ export default function Contact() {
                   rows={4}
                 />
               </div>
+              {error && <p className={styles.error}>{error}</p>}
               <button
                 type="submit"
                 className={styles.submit}
                 disabled={loading}
               >
-                {loading ? "Sending Request..." : "Request My Free Quote →"}
+                {loading ? "Sending..." : "Request My Free Quote →"}
               </button>
             </form>
           )}
