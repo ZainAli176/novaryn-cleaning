@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
       },
       body: JSON.stringify({
         from: "onboarding@resend.dev",
-        to: ["novaryncleaning@gmail.com"],
+        to: ["zaynalii176@gmail.com"],
         reply_to: email,
         subject: `New Booking Request — ${service}`,
         html: `
