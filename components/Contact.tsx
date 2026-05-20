@@ -9,7 +9,7 @@ const contactInfo = [
     title: "Address",
     lines: ["227 Mitchell St SW #3b", "Atlanta, GA 30303"],
   },
-  { icon: "📞", title: "Phone", lines: ["(404) 555-0192"] },
+
   { icon: "✉️", title: "Email", lines: ["Novaryncleaning@gmail.com"] },
   {
     icon: "🕐",
