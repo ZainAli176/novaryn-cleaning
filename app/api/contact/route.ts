@@ -19,8 +19,8 @@ export async function POST(req: NextRequest) {
         Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "Novaryn Cleaning <onboarding@resend.dev>",
-        to: ["Novaryncleaning@gmail.com"],
+        from: "onboarding@resend.dev",
+        to: ["novaryncleaning@gmail.com"],
         reply_to: email,
         subject: `New Booking Request — ${service}`,
         html: `
@@ -77,10 +77,10 @@ export async function POST(req: NextRequest) {
     });
 
     if (!res.ok) {
-      const error = await res.text();
-      console.error("Resend error:", error);
+      const errorData = await res.json();
+      console.error("Resend error:", JSON.stringify(errorData));
       return NextResponse.json(
-        { error: "Failed to send email" },
+        { error: "Failed to send email", details: errorData },
         { status: 500 },
       );
     }
