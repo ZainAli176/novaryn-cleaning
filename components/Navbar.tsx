@@ -15,9 +15,18 @@ const serviceLinks = [
   { href: "/services/recurring-cleaning", label: "Recurring Cleaning" },
 ];
 
+const areaLinks = [
+  { href: "/cleaning-service-midtown-atlanta", label: "Midtown Atlanta" },
+  { href: "/cleaning-service-buckhead", label: "Buckhead" },
+  { href: "/cleaning-service-decatur-ga", label: "Decatur, GA" },
+  { href: "/cleaning-service-sandy-springs", label: "Sandy Springs" },
+];
+
+// Replace your existing navLinks array with this one:
 const navLinks = [
   { href: "/#about", label: "About" },
   { href: "/#testimonials", label: "Reviews" },
+  { href: "/blog", label: "Blog" }, // 🆕 Pointing cleanly to your main feed
   { href: "/#faq", label: "FAQ" },
   { href: "/#contact", label: "Contact" },
 ];
@@ -25,8 +34,10 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const dropdownRef = useRef<HTMLLIElement>(null);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [areasOpen, setAreasOpen] = useState(false);
+  const servicesRef = useRef<HTMLLIElement>(null);
+  const areasRef = useRef<HTMLLIElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -37,15 +48,24 @@ export default function Navbar() {
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(e.target as Node)
+        servicesRef.current &&
+        !servicesRef.current.contains(e.target as Node)
       ) {
-        setDropdownOpen(false);
+        setServicesOpen(false);
+      }
+      if (areasRef.current && !areasRef.current.contains(e.target as Node)) {
+        setAreasOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
+
+  const closeAll = () => {
+    setServicesOpen(false);
+    setAreasOpen(false);
+    setMenuOpen(false);
+  };
 
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}>
@@ -60,28 +80,28 @@ export default function Navbar() {
 
       <ul className={`${styles.navLinks} ${menuOpen ? styles.open : ""}`}>
         {/* Services dropdown */}
-        <li className={styles.dropdownParent} ref={dropdownRef}>
+        <li className={styles.dropdownParent} ref={servicesRef}>
           <button
             className={`${styles.navLink} ${styles.dropdownTrigger}`}
-            onClick={() => setDropdownOpen(!dropdownOpen)}
-            aria-expanded={dropdownOpen}
+            onClick={() => {
+              setServicesOpen(!servicesOpen);
+              setAreasOpen(false);
+            }}
+            aria-expanded={servicesOpen}
           >
             Services
             <span
-              className={`${styles.chevron} ${dropdownOpen ? styles.chevronOpen : ""}`}
+              className={`${styles.chevron} ${servicesOpen ? styles.chevronOpen : ""}`}
             >
               ▾
             </span>
           </button>
-          {dropdownOpen && (
+          {servicesOpen && (
             <div className={styles.dropdown}>
               <a
                 href="/services"
                 className={styles.dropdownAll}
-                onClick={() => {
-                  setDropdownOpen(false);
-                  setMenuOpen(false);
-                }}
+                onClick={closeAll}
               >
                 View All Services →
               </a>
@@ -90,10 +110,40 @@ export default function Navbar() {
                   key={l.href}
                   href={l.href}
                   className={styles.dropdownLink}
-                  onClick={() => {
-                    setDropdownOpen(false);
-                    setMenuOpen(false);
-                  }}
+                  onClick={closeAll}
+                >
+                  {l.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </li>
+
+        {/* Areas dropdown */}
+        <li className={styles.dropdownParent} ref={areasRef}>
+          <button
+            className={`${styles.navLink} ${styles.dropdownTrigger}`}
+            onClick={() => {
+              setAreasOpen(!areasOpen);
+              setServicesOpen(false);
+            }}
+            aria-expanded={areasOpen}
+          >
+            Areas
+            <span
+              className={`${styles.chevron} ${areasOpen ? styles.chevronOpen : ""}`}
+            >
+              ▾
+            </span>
+          </button>
+          {areasOpen && (
+            <div className={styles.dropdown}>
+              {areaLinks.map((l) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  className={styles.dropdownLink}
+                  onClick={closeAll}
                 >
                   {l.label}
                 </a>
@@ -104,22 +154,14 @@ export default function Navbar() {
 
         {navLinks.map((link) => (
           <li key={link.href}>
-            <a
-              href={link.href}
-              className={styles.navLink}
-              onClick={() => setMenuOpen(false)}
-            >
+            <a href={link.href} className={styles.navLink} onClick={closeAll}>
               {link.label}
             </a>
           </li>
         ))}
 
         <li className={styles.mobileCta}>
-          <a
-            href="/#contact"
-            className={styles.cta}
-            onClick={() => setMenuOpen(false)}
-          >
+          <a href="/#contact" className={styles.cta} onClick={closeAll}>
             Book Now
           </a>
         </li>

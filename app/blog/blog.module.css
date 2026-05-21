@@ -1,0 +1,503 @@
+/* app/blog/blog.module.css */
+
+.blogContainer {
+  min-height: 100vh;
+  background-color: #fdfefe;
+  padding: 8rem 2rem 6rem 2rem; /* Top padding keeps it clear of your fixed Navbar */
+  display: flex;
+  justify-content: center;
+}
+
+.article {
+  max-width: 760px; /* Golden width for reading long-form content comfort */
+  width: 100%;
+}
+
+.date {
+  display: block;
+  font-size: 0.95rem;
+  color: #64748b; /* Sleek slate gray */
+  font-weight: 500;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #0f172a; /* Deep slate near black for contrast */
+  line-height: 1.2;
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.02em;
+}
+
+/* Core Content Styling for dangerouslySetInnerHTML */
+.content p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #334155;
+  margin-bottom: 1.75rem;
+}
+
+.content strong {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.content h2 {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #196fd4; /* Your signature Novaryn Deep Blue */
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.content h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Bullet & Numbered Lists */
+.content ul,
+.content ol {
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+}
+
+.content li {
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: #334155;
+  margin-bottom: 0.75rem;
+}
+
+.content li strong {
+  color: #196fd4; /* Makes list keypoints pop in blue */
+}
+
+/* Inline Anchor Links */
+.content a {
+  color: #196fd4;
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 2px solid #eff6ff;
+  transition: all 0.2s ease-in-out;
+}
+
+.content a:hover {
+  background-color: #eff6ff; /* Soft theme-blue highlight on hover */
+  border-bottom-color: #196fd4;
+}
+
+/* Responsive Custom Table Styling */
+.content table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 2.5rem 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.content th {
+  background-color: #eff6ff; /* Clean light theme blue background */
+  color: #196fd4; /* Deep theme blue text */
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 14px 20px;
+}
+
+.content td {
+  padding: 16px 20px;
+  font-size: 1.1rem;
+  color: #475569;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.content tr:last-child td {
+  border-bottom: none;
+}
+
+.content tr:hover td {
+  background-color: #f8fafc; /* Subtle row tint when tracking prices */
+}
+
+/* Premium High-Converting CTA Box (With a touch of your signature Glassmorphism) */
+.cta {
+  margin-top: 4rem;
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(25, 111, 212, 0.15);
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 10px 25px -5px rgba(25, 111, 212, 0.08);
+}
+
+.cta h3 {
+  font-size: 1.5rem;
+  color: #0f172a;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+
+.ctaButton {
+  display: inline-block;
+  background-color: #196fd4;
+  color: #ffffff !important;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.85rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(25, 111, 212, 0.3);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.ctaButton:hover {
+  background-color: #1459aa;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(25, 111, 212, 0.4);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .blogContainer {
+    padding: 6rem 1.25rem 4rem 1.25rem;
+  }
+
+  .title {
+    font-size: 2rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .content p,
+  .content li,
+  .content td,
+  .content th {
+    font-size: 1.05rem;
+  }
+
+  .cta {
+    padding: 1.75rem;
+  }
+}
+/* Add this right to the bottom of your app/blog/blog.module.css */
+
+.faq {
+  margin-top: 5rem;
+  padding: 40px 0;
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.faqItem {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+}
+
+.faqQ {
+  width: 100%;
+  padding: 20px 24px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #0f172a !important;
+  background: #eff6ff !important; /* Highlights header row in clean blue tint */
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.faqContentVisible p {
+  padding: 20px 24px !important;
+  font-size: 1.1rem !important;
+  color: #475569 !important;
+  line-height: 1.75;
+  margin: 0 !important;
+  background: #ffffff !important;
+}
+
+/* Related Suggestions Grid Styling */
+.relatedSection {
+  margin-top: 5rem;
+  padding-top: 3rem;
+  border-top: 2px solid #eff6ff;
+}
+
+.relatedHeaderTitle {
+  font-size: 1.6rem;
+  color: #0f172a;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.relatedGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.relatedCard {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0;
+  padding: 1.75rem;
+  border-radius: 14px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.relatedCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(25, 111, 212, 0.06);
+}
+
+.relatedTag {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: #196fd4 !important;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.relatedCardTitle a {
+  color: #0f172a !important;
+  text-decoration: none !important;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
+  border-bottom: none !important;
+}
+
+.relatedCardTitle a:hover {
+  color: #196fd4 !important;
+  background: none !important;
+}
+
+.relatedDesc {
+  margin-top: 0.5rem !important;
+  font-size: 0.95rem !important;
+  color: #64748b !important;
+  line-height: 1.5;
+}
+.faqItem {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
+}
+
+/* Open state indicator box styling */
+.faqItem[open] {
+  border-color: #196fd4;
+}
+
+.faqQ {
+  width: 100%;
+  padding: 20px 24px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #0f172a !important;
+  background: #ffffff !important;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none; /* Removes native arrow on Chrome/Firefox */
+}
+
+.faqQ::-webkit-details-marker {
+  display: none; /* Removes native arrow on Safari */
+}
+
+.faqItem[open] .faqQ {
+  background: #eff6ff !important; /* Shales background tint when open */
+  color: #196fd4 !important;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.faqToggle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #196fd4;
+  transition: transform 0.2s ease;
+}
+
+.faqItem[open] .faqToggle {
+  transform: rotate(45deg); /* Rotates plus sign into a close cross */
+}
+
+.faqContentVisible p {
+  padding: 20px 24px !important;
+  font-size: 1.1rem !important;
+  color: #475569 !important;
+  line-height: 1.75;
+  margin: 0 !important;
+  background: #ffffff !important;
+}
+/* Append these rules to app/blog/blog.module.css */
+
+.indexContainer {
+  min-height: 80vh;
+  padding: 80px 5% 120px;
+  background-color: #fafafa;
+}
+
+.indexHeader {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px;
+}
+
+.indexLabel {
+  font-size: 13px;
+  font-weight: 700;
+  color: #196fd4;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.indexTitle {
+  font-size: clamp(32px, 4.5vw, 46px);
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.indexSubtitle {
+  font-size: 1.15rem;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* Grid Parameters */
+.gridContainer {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.blogGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 2rem;
+}
+
+.indexCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.indexCard:hover {
+  transform: translateY(-4px);
+  border-color: #196fd4;
+  box-shadow: 0 12px 24px -4px rgba(25, 111, 212, 0.08);
+}
+
+.cardContent {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.cardMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #64748b;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.metaDot {
+  color: #cbd5e1;
+}
+
+.cardTitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.cardTitle a {
+  color: #0f172a;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.cardTitle a:hover {
+  color: #196fd4;
+}
+
+.cardDesc {
+  font-size: 1rem;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1; /* Pushes the read button perfectly to the card footer base */
+}
+
+.readMoreLink {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #196fd4;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.2s ease;
+}
+
+.readMoreLink:hover {
+  gap: 10px;
+}
+
+.readMoreLink .arrow {
+  transition: transform 0.2s ease;
+}
+
+/* Responsive breakpoint adjustments */
+@media (max-width: 640px) {
+  .blogGrid {
+    grid-template-columns: 1fr;
+  }
+  .indexContainer {
+    padding: 50px 5% 80px;
+  }
+}

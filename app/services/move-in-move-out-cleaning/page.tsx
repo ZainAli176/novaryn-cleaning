@@ -2,24 +2,45 @@ import type { Metadata } from "next";
 import ServicePage, { ServiceData } from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Move In / Move Out Cleaning Atlanta | Novaryn Cleaning",
+  title: "Move Out Cleaning Atlanta GA | Novaryn Cleaning",
   description:
-    "Professional move-in and move-out cleaning in Atlanta, GA. Get your full deposit back or move into a spotless home. Book your free quote today.",
+    "Professional move-in and move-out cleaning services in Atlanta. Get your full security deposit back or move into a spotless home. Fast, reliable & inspection-ready. Free quote today!",
+  keywords: [
+    "move out cleaning atlanta",
+    "move in cleaning atlanta",
+    "move out cleaning service atlanta ga",
+    "end of lease cleaning atlanta",
+    "apartment cleaning atlanta",
+    "security deposit cleaning atlanta",
+  ],
+  openGraph: {
+    title: "Move Out Cleaning Atlanta GA | Novaryn Cleaning",
+    description:
+      "Get your full security deposit back with our professional move-out cleaning. Move-in cleaning also available. Serving all Atlanta areas.",
+    url: "https://novaryncleaning.online/services/move-in-move-out-cleaning",
+    images: [{ url: "/og/move-out-cleaning.jpg" }],
+    siteName: "Novaryn Cleaning",
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 const data: ServiceData = {
   slug: "move-in-move-out-cleaning",
   icon: "📦",
   title: "Move In / Move Out Cleaning",
+  metaTitle: "Move Out Cleaning Atlanta GA | Novaryn Cleaning",
+  metaDesc:
+    "Professional move-in and move-out cleaning services in Atlanta. Get your full security deposit back or move into a spotless home.",
   tagline: "Leave it spotless. Arrive to perfection.",
   heroDesc:
     "Moving is stressful enough — let us handle the cleaning. Whether you're vacating a property and need your deposit back, or moving into a new home and want a fresh start, Novaryn Cleaning delivers a thorough, inspection-ready clean.",
   color: "#7B4FD4",
   badge: undefined,
   whatIs:
-    "Move-in and move-out cleaning is a specialized, comprehensive clean performed when a property is being vacated or occupied. It's more thorough than a standard clean because the goal is to leave the space in immaculate, inspection-ready condition. For move-outs, this means getting your full security deposit back. For move-ins, it means starting fresh in a truly clean home — not just surface-level wiped down. We service apartments, condos, single-family homes, and rental properties across Atlanta.",
+    "Move-in and move-out cleaning is a specialized, comprehensive clean performed when a property is being vacated or occupied. It's more thorough than a standard clean because the goal is to leave the space in immaculate, inspection-ready condition.",
   whyChoose:
-    "We've helped hundreds of Atlanta renters and homeowners get their security deposits back in full. Our move-out cleaning checklist is built around landlord and property manager expectations. For move-ins, we ensure the space is sanitized, deodorized, and genuinely clean before your furniture and family arrive.",
+    "We've helped hundreds of Atlanta renters and homeowners get their security deposits back in full. Our move-out cleaning checklist is built around landlord and property manager expectations.",
   includes: [
     {
       icon: "🏠",
@@ -68,54 +89,56 @@ const data: ServiceData = {
     },
   ],
   process: [
-    {
-      step: "1",
-      title: "Book in Advance",
-      desc: "Schedule your clean before your move-out date or on your move-in day — we work around your timeline.",
-    },
-    {
-      step: "2",
-      title: "Empty the Space",
-      desc: "The property should be empty of furniture and belongings for a complete clean.",
-    },
-    {
-      step: "3",
-      title: "Full Clean",
-      desc: "We work top-to-bottom through every room using our move-in/out checklist.",
-    },
-    {
-      step: "4",
-      title: "Inspection Ready",
-      desc: "The property is left in spotless condition — ready for your landlord walkthrough or your first night.",
-    },
+    /* ... your existing process ... */
   ],
   faqs: [
-    {
-      q: "Will this help me get my security deposit back?",
-      a: "Our move-out clean is specifically designed to meet landlord and property manager inspection standards. Many of our clients have successfully gotten their full deposit back after booking with us.",
-    },
-    {
-      q: "Should the property be empty before you clean?",
-      a: "Yes — the property should be empty of furniture for the best results. This lets us clean every surface, corner, and floor space without obstruction.",
-    },
-    {
-      q: "Do you clean appliances that are staying with the unit?",
-      a: "Yes. We clean inside and outside of all appliances that are part of the unit, including ovens, refrigerators, microwaves, and dishwashers.",
-    },
-    {
-      q: "How far in advance should I book?",
-      a: "We recommend booking at least 3–5 days before your move-out date to ensure availability, especially around end-of-month when demand is highest.",
-    },
-    {
-      q: "Can you do a same-day move-in clean?",
-      a: "In many cases, yes — subject to availability. Contact us directly for urgent or same-day requests and we'll do our best to accommodate.",
-    },
+    /* ... your existing faqs ... */
   ],
-  metaTitle: "Move In / Move Out Cleaning Atlanta | Novaryn Cleaning",
-  metaDesc:
-    "Get your deposit back or move into a spotless home. Professional move-in/move-out cleaning in Atlanta, GA. Book your free quote.",
 };
 
 export default function MoveInMoveOut() {
-  return <ServicePage data={data} />;
+  return (
+    <>
+      <ServicePage data={data} />
+
+      {/* JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: "Move Out & Move In Cleaning Service Atlanta",
+            description:
+              "Professional move-out and move-in cleaning services in Atlanta, GA. Inspection-ready cleaning to help you get your full security deposit back.",
+            provider: {
+              "@type": "LocalBusiness",
+              name: "Novaryn Cleaning",
+              url: "https://novaryncleaning.online",
+              telephone: "", // ← Add your phone number
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "227 Mitchell St SW #3b",
+                addressLocality: "Atlanta",
+                addressRegion: "GA",
+                postalCode: "30303",
+              },
+            },
+            areaServed: [
+              "Atlanta",
+              "Buckhead",
+              "Midtown",
+              "Decatur",
+              "Sandy Springs",
+            ],
+            serviceType: "Move Out Cleaning",
+            offers: {
+              "@type": "Offer",
+              priceCurrency: "USD",
+            },
+          }),
+        }}
+      />
+    </>
+  );
 }

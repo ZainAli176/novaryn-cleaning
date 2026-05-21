@@ -4,10 +4,12 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import styles from "./Footer.module.css";
 
+// Replace your existing navLinks array with this one:
 const navLinks = [
   { href: "/#services", label: "Services" },
   { href: "/#about", label: "About" },
   { href: "/#testimonials", label: "Reviews" },
+  { href: "/blog", label: "Blog" }, // 🆕 Clean structural link path
   { href: "/#faq", label: "FAQ" },
   { href: "/#contact", label: "Contact" },
 ];

@@ -5,9 +5,27 @@ import Footer from "@/components/Footer";
 import styles from "./services.module.css";
 
 export const metadata: Metadata = {
-  title: "Our Cleaning Services | Novaryn Cleaning Atlanta",
+  title: "Cleaning Services Atlanta GA | Novaryn Cleaning",
   description:
-    "Explore all of Novaryn Cleaning's professional services in Atlanta, GA — standard, deep, move-in/out, commercial, post-construction & recurring cleaning.",
+    "Professional cleaning services in Atlanta, GA — Standard Cleaning, Deep Cleaning, Move In/Out, Recurring, Post-Construction, Office & Commercial, and Airbnb Cleaning. Book your free quote today!",
+  keywords: [
+    "cleaning services atlanta ga",
+    "home cleaning atlanta",
+    "deep cleaning atlanta",
+    "move out cleaning atlanta",
+    "office cleaning atlanta",
+    "recurring cleaning atlanta",
+  ],
+  openGraph: {
+    title: "Cleaning Services Atlanta GA | Novaryn Cleaning",
+    description:
+      "Full range of professional cleaning services in Atlanta — residential, commercial & post-construction.",
+    url: "https://novaryncleaning.online/services",
+    images: [{ url: "/og/services.jpg" }],
+    siteName: "Novaryn Cleaning",
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 const services = [
@@ -38,7 +56,7 @@ const services = [
   {
     icon: "🏢",
     title: "Office & Commercial Cleaning",
-    desc: "Professional cleaning for offices, retail spaces, and commercial properties — on your schedule, without disruption.",
+    desc: "Professional cleaning for offices, retail spaces, and commercial properties — on your schedule.",
     href: "/services/office-commercial-cleaning",
     badge: null,
     badgeColor: null,
@@ -46,7 +64,7 @@ const services = [
   {
     icon: "🏗️",
     title: "Post-Construction Cleaning",
-    desc: "Specialist cleanup after renovation or new construction — removing dust, debris, residue, and making it move-in ready.",
+    desc: "Specialist cleanup after renovation or new construction — removing dust, debris, and residue.",
     href: "/services/post-construction-cleaning",
     badge: null,
     badgeColor: null,
@@ -54,7 +72,7 @@ const services = [
   {
     icon: "🔄",
     title: "Recurring Cleaning",
-    desc: "Weekly, bi-weekly, or monthly plans. Same trusted team, consistent results, and up to 20% off one-time rates.",
+    desc: "Weekly, bi-weekly, or monthly plans. Same trusted team, consistent results, and up to 20% off.",
     href: "/services/recurring-cleaning",
     badge: "Save Up to 20%",
     badgeColor: "#10B36A",
@@ -128,6 +146,63 @@ export default function ServicesIndex() {
         </section>
       </main>
       <Footer />
+
+      {/* Schema Markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: "Professional Cleaning Services Atlanta",
+            description:
+              "Full range of residential and commercial cleaning services in Atlanta, GA",
+            provider: {
+              "@type": "LocalBusiness",
+              name: "Novaryn Cleaning",
+              url: "https://novaryncleaning.online",
+            },
+            areaServed: [
+              "Atlanta",
+              "Buckhead",
+              "Midtown",
+              "Decatur",
+              "Sandy Springs",
+            ],
+            hasOfferCatalog: {
+              "@type": "OfferCatalog",
+              name: "Cleaning Services",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Standard Home Cleaning",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: { "@type": "Service", name: "Deep Cleaning" },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Move In Move Out Cleaning",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Recurring Cleaning",
+                  },
+                },
+              ],
+            },
+          }),
+        }}
+      />
     </>
   );
 }
