@@ -1,5 +1,6 @@
 // app/blog/page.tsx
 import type { Metadata } from "next";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { blogPosts } from "./[slug]/page"; // Importing directly from your data source
@@ -9,10 +10,34 @@ export const metadata: Metadata = {
   title: "Expert Cleaning Tips & Guides | Novaryn Cleaning Atlanta",
   description:
     "Discover professional house cleaning tips, local pricing guides, moving checklists, and home maintenance advice from the team at Novaryn Cleaning.",
+  openGraph: {
+    title: "Expert Cleaning Tips & Guides | Novaryn Cleaning Atlanta",
+    description:
+      "Discover professional house cleaning tips, local pricing guides, and home maintenance advice.",
+    url: "https://novaryncleaning.online/blog",
+    type: "website",
+  },
 };
 
 export default function BlogIndexPage() {
   const postsArray = Object.values(blogPosts);
+
+  // Generate a dynamic CollectionPage schema loop for Google crawl indexing
+  const collectionSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Novaryn Cleaning Professional Insights Blog",
+    description:
+      "Professional house cleaning tips, local pricing guides, moving checklists, and home maintenance advice for Atlanta GA.",
+    url: "https://novaryncleaning.online/blog",
+    hasPart: postsArray.map((post) => ({
+      "@type": "Article",
+      headline: post.title,
+      description: post.description,
+      url: `https://novaryncleaning.online/blog/${post.slug}`,
+      datePublished: post.date,
+    })),
+  };
 
   return (
     <>
@@ -43,23 +68,30 @@ export default function BlogIndexPage() {
                   </div>
 
                   <h2 className={styles.cardTitle}>
-                    <a href={`/blog/${post.slug}`}>{post.title}</a>
+                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                   </h2>
 
                   <p className={styles.cardDesc}>{post.description}</p>
 
-                  <a
+                  <Link
                     href={`/blog/${post.slug}`}
                     className={styles.readMoreLink}
                   >
                     Read Article <span className={styles.arrow}>→</span>
-                  </a>
+                  </Link>
                 </div>
               </article>
             ))}
           </div>
         </section>
       </main>
+
+      {/* Structured Indexing Data Markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
+      />
+
       <Footer />
     </>
   );

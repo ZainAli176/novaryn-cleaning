@@ -1,509 +1,160 @@
-/* ── Hero ─────────────────────────────────────────── */
+/* ── Hero ── */
 .hero {
-  padding: 72px 5% 80px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  align-items: start;
-  min-height: calc(100vh - 68px);
-}
-
-.heroContent {
-  max-width: 540px;
-  padding-top: 8px;
-}
-
-.breadcrumb {
-  display: inline-block;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--blue);
-  margin-bottom: 20px;
-  transition: opacity 0.2s;
-}
-.breadcrumb:hover {
-  opacity: 0.7;
-}
-
-.badge {
-  display: inline-block;
-  background: var(--blue);
-  color: white;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 100px;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  margin-bottom: 16px;
-  margin-left: 10px;
-}
-
-.heroIcon {
-  font-size: 56px;
-  margin-bottom: 18px;
-  line-height: 1;
-}
-
-.heroTitle {
-  font-family: var(--font-serif);
-  font-size: clamp(32px, 4.5vw, 50px);
-  font-weight: 700;
-  line-height: 1.1;
-  color: var(--text);
-  margin-bottom: 14px;
-}
-
-.heroTagline {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--blue);
-  margin-bottom: 14px;
-}
-
-.heroDesc {
-  font-size: 16px;
-  color: var(--muted);
-  line-height: 1.75;
-  margin-bottom: 28px;
-}
-
-.heroBtns {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.btnPrimary {
-  background: var(--blue);
-  color: white;
-  padding: 13px 26px;
-  border-radius: 10px;
-  font-size: 15px;
-  font-weight: 600;
-  transition:
-    background 0.2s,
-    transform 0.15s;
-  display: inline-block;
-}
-.btnPrimary:hover {
-  background: var(--blue-dark);
-  transform: translateY(-1px);
-}
-
-.btnSecondary {
-  background: white;
-  color: var(--blue);
-  padding: 13px 26px;
-  border-radius: 10px;
-  font-size: 15px;
-  font-weight: 600;
-  border: 1.5px solid var(--border);
-  transition:
-    border-color 0.2s,
-    transform 0.15s;
-  display: inline-block;
-}
-.btnSecondary:hover {
-  border-color: var(--blue);
-  transform: translateY(-1px);
-}
-
-/* Form card */
-.heroForm {
-  position: sticky;
-  top: 88px;
-}
-
-.formCard {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 32px;
-  box-shadow: 0 16px 48px rgba(26, 111, 212, 0.1);
-}
-
-.formCardTitle {
-  font-family: var(--font-serif);
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 4px;
-}
-
-.formCardSub {
-  font-size: 13px;
-  color: var(--muted);
-  margin-bottom: 22px;
-}
-
-/* Form internals */
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.formRow {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-.formGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.formGroup label {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--text);
-}
-
-.formGroup input,
-.formGroup select,
-.formGroup textarea {
-  width: 100%;
-  padding: 10px 13px;
-  border: 1.5px solid var(--border);
-  border-radius: 9px;
-  font-size: 14px;
-  font-family: var(--font-sans);
-  color: var(--text);
-  background: white;
-  outline: none;
-  transition: border-color 0.2s;
-}
-
-.formGroup input:focus,
-.formGroup select:focus,
-.formGroup textarea:focus {
-  border-color: var(--blue);
-}
-
-.formGroup input::placeholder,
-.formGroup textarea::placeholder {
-  color: #aab4be;
-}
-
-.formGroup textarea {
-  resize: vertical;
-  min-height: 80px;
-}
-
-.formSubmit {
-  width: 100%;
-  background: var(--blue);
-  color: white;
-  padding: 13px;
-  border: none;
-  border-radius: 10px;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
-  font-family: var(--font-sans);
-  transition:
-    background 0.2s,
-    transform 0.15s;
-}
-.formSubmit:hover {
-  background: var(--blue-dark);
-  transform: translateY(-1px);
-}
-
-.success {
+  background: linear-gradient(135deg, #ebf4ff 0%, #f5f9ff 50%, #e8f2fd 100%);
+  padding: 80px 5% 72px;
   text-align: center;
-  padding: 32px 16px;
-}
-.successIcon {
-  font-size: 44px;
-  margin-bottom: 12px;
-}
-.success h4 {
-  font-family: var(--font-serif);
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 8px;
-}
-.success p {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.7;
+  border-bottom: 1px solid var(--border);
 }
 
-/* ── Shared section styles ───────────────────────── */
 .label {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   color: var(--blue);
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
 }
 
-.sectionTitle {
+.heroTitle {
   font-family: var(--font-serif);
-  font-size: clamp(26px, 3.5vw, 36px);
+  font-size: clamp(34px, 5vw, 54px);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.15;
   color: var(--text);
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
-.sectionHeader {
-  text-align: center;
-  margin-bottom: 48px;
+.heroAccent {
+  color: var(--blue);
 }
 
-.bodyText {
-  font-size: 15px;
+.heroSub {
+  font-size: 17px;
   color: var(--muted);
-  line-height: 1.8;
+  max-width: 560px;
+  margin: 0 auto 28px;
+  line-height: 1.7;
 }
 
-/* ── What Is It ──────────────────────────────────── */
-.whatIs {
-  padding: 80px 5%;
-  background: white;
-}
-
-.whatIsInner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: start;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.whyChooseCard {
-  background: var(--sky);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 28px 26px;
-}
-
-.whyTitle {
-  font-family: var(--font-serif);
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 12px;
-}
-
-.trustRow {
+.heroBadges {
   display: flex;
+  justify-content: center;
+  gap: 10px;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 18px;
 }
 
-.trustBadge {
+.heroBadge {
   background: white;
   border: 1px solid var(--border);
   border-radius: 100px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
-  color: var(--blue);
-  padding: 4px 12px;
+  color: var(--text);
+  padding: 6px 14px;
 }
 
-/* ── Includes ────────────────────────────────────── */
-.includes {
-  padding: 80px 5%;
-  background: var(--sky);
+/* ── Grid ── */
+.gridSection {
+  padding: 72px 5%;
+  background: var(--white);
 }
 
-.includesGrid {
+.grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 22px;
   max-width: 1100px;
   margin: 0 auto;
 }
 
-.includeCard {
+.card {
+  display: flex;
+  flex-direction: column;
   background: white;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 26px 22px;
+  border: 1.5px solid var(--border);
+  border-radius: 18px;
+  padding: 30px 26px;
   transition:
+    border-color 0.2s,
     box-shadow 0.2s,
     transform 0.2s;
-}
-.includeCard:hover {
-  box-shadow: 0 8px 28px rgba(26, 111, 212, 0.09);
-  transform: translateY(-2px);
+  text-decoration: none;
+  color: inherit;
 }
 
-.includeIcon {
-  font-size: 28px;
-  margin-bottom: 12px;
+.card:hover {
+  border-color: var(--blue-mid);
+  box-shadow: 0 10px 32px rgba(26, 111, 212, 0.1);
+  transform: translateY(-4px);
 }
 
-.includeTitle {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 8px;
-}
-
-.includeDesc {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.65;
-}
-
-/* ── Process ─────────────────────────────────────── */
-.process {
-  padding: 80px 5%;
-  background: white;
-}
-
-.processSteps {
+.cardTop {
   display: flex;
   align-items: flex-start;
-  gap: 0;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 1100px;
-  margin: 0 auto;
-  position: relative;
-}
-
-.step {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  flex: 1;
-  min-width: 160px;
-  max-width: 220px;
-  position: relative;
-}
-
-.stepNum {
-  width: 52px;
-  height: 52px;
-  background: var(--blue);
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  font-weight: 700;
-  font-family: var(--font-serif);
-  margin-bottom: 14px;
-  flex-shrink: 0;
-}
-
-.stepTitle {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 6px;
-}
-
-.stepDesc {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-.stepArrow {
-  font-size: 22px;
-  color: var(--border);
-  align-self: flex-start;
-  margin-top: 14px;
-  padding: 0 4px;
-  flex-shrink: 0;
-}
-
-/* ── FAQ ─────────────────────────────────────────── */
-.faq {
-  padding: 80px 5%;
-  background: var(--sky);
-}
-
-.faqList {
-  max-width: 680px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.faqItem {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.faqQ {
-  width: 100%;
-  padding: 18px 22px;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--text);
-  background: white;
-  border: none;
-  text-align: left;
-  display: flex;
   justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  cursor: pointer;
-  font-family: var(--font-sans);
-  transition: background 0.2s;
-}
-.faqQ:hover {
-  background: var(--sky);
+  margin-bottom: 16px;
 }
 
-.faqToggle {
-  font-size: 20px;
-  color: var(--blue);
-  font-weight: 300;
+.cardIcon {
+  font-size: 36px;
+  line-height: 1;
+}
+
+.cardBadge {
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   flex-shrink: 0;
 }
 
-.faqA {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease;
-  background: white;
+.cardTitle {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+  line-height: 1.25;
 }
-.faqA p {
-  padding: 0 22px 18px;
+
+.cardDesc {
   font-size: 14px;
   color: var(--muted);
-  line-height: 1.75;
+  line-height: 1.7;
+  flex: 1;
+  margin-bottom: 20px;
 }
 
-.faqOpen .faqA {
-  max-height: 300px;
+.cardLink {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-top: auto;
 }
 
-/* ── CTA Banner ──────────────────────────────────── */
-.ctaBanner {
+.card:hover .cardLink {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ── CTA ── */
+.cta {
   background: linear-gradient(135deg, #1a6fd4 0%, #0d4a9b 100%);
   padding: 72px 5%;
   text-align: center;
 }
 
 .ctaInner {
-  max-width: 600px;
+  max-width: 560px;
   margin: 0 auto;
 }
 
 .ctaTitle {
   font-family: var(--font-serif);
-  font-size: clamp(28px, 4vw, 40px);
+  font-size: clamp(26px, 4vw, 38px);
   font-weight: 700;
   color: white;
   margin-bottom: 14px;
@@ -527,79 +178,30 @@
   transition:
     transform 0.15s,
     box-shadow 0.2s;
+  text-decoration: none;
 }
 .ctaBtn:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-/* ── Responsive ──────────────────────────────────── */
-@media (max-width: 960px) {
-  .hero {
-    grid-template-columns: 1fr;
-    min-height: auto;
-    padding: 52px 5% 56px;
-  }
-
-  .heroContent {
-    max-width: 100%;
-  }
-
-  .heroForm {
-    position: static;
-  }
-
-  .whatIsInner {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-
-  .includesGrid {
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .stepArrow {
-    display: none;
-  }
-
-  .processSteps {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-  }
-
-  .step {
-    flex-direction: row;
-    text-align: left;
-    max-width: 100%;
-    gap: 16px;
-    align-items: flex-start;
-  }
-
-  .stepNum {
-    flex-shrink: 0;
-    margin-bottom: 0;
   }
 }
 
-@media (max-width: 600px) {
-  .includesGrid {
+@media (max-width: 560px) {
+  .grid {
     grid-template-columns: 1fr;
   }
-  .formRow {
-    grid-template-columns: 1fr;
+
+  .hero {
+    padding: 60px 5% 52px;
   }
-  .heroBtns {
-    flex-direction: column;
-  }
-  .btnPrimary,
-  .btnSecondary {
-    text-align: center;
-  }
-  .whatIs,
-  .includes,
-  .process,
-  .faq {
-    padding: 56px 5%;
+
+  .gridSection {
+    padding: 52px 5%;
   }
 }

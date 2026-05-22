@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import styles from "./Navbar.module.css";
 
 const serviceLinks = [
@@ -22,11 +23,10 @@ const areaLinks = [
   { href: "/cleaning-service-sandy-springs", label: "Sandy Springs" },
 ];
 
-// Replace your existing navLinks array with this one:
 const navLinks = [
   { href: "/#about", label: "About" },
   { href: "/#testimonials", label: "Reviews" },
-  { href: "/blog", label: "Blog" }, // 🆕 Pointing cleanly to your main feed
+  { href: "/blog", label: "Blog" },
   { href: "/#faq", label: "FAQ" },
   { href: "/#contact", label: "Contact" },
 ];
@@ -38,6 +38,8 @@ export default function Navbar() {
   const [areasOpen, setAreasOpen] = useState(false);
   const servicesRef = useRef<HTMLLIElement>(null);
   const areasRef = useRef<HTMLLIElement>(null);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -50,12 +52,10 @@ export default function Navbar() {
       if (
         servicesRef.current &&
         !servicesRef.current.contains(e.target as Node)
-      ) {
+      )
         setServicesOpen(false);
-      }
-      if (areasRef.current && !areasRef.current.contains(e.target as Node)) {
+      if (areasRef.current && !areasRef.current.contains(e.target as Node))
         setAreasOpen(false);
-      }
     };
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
@@ -65,6 +65,19 @@ export default function Navbar() {
     setServicesOpen(false);
     setAreasOpen(false);
     setMenuOpen(false);
+  };
+
+  const handleViewAllServices = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    closeAll();
+    if (pathname === "/") {
+      // Already on homepage — just scroll
+      const el = document.getElementById("services");
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // Navigate to homepage then scroll
+      router.push("/#services");
+    }
   };
 
   return (
@@ -101,7 +114,7 @@ export default function Navbar() {
               <a
                 href="/services"
                 className={styles.dropdownAll}
-                onClick={closeAll}
+                onClick={handleViewAllServices}
               >
                 View All Services →
               </a>

@@ -1,11 +1,20 @@
 .footer {
   background: #0a1628;
-  padding: 48px 5% 28px;
-  text-align: center;
+  padding: 56px 5% 24px;
+  color: rgba(255, 255, 255, 0.55);
+  font-family: var(--font-sans);
 }
 
-.top {
-  margin-bottom: 20px;
+.inner {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.col {
+  min-width: 0;
 }
 
 .logoName {
@@ -13,134 +22,158 @@
   font-size: 20px;
   font-weight: 700;
   color: white;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 10px;
 }
 
-.address {
+.tagline {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.5);
-  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.65;
+  margin-bottom: 18px;
 }
 
-.links {
+.contactList {
   display: flex;
-  justify-content: center;
-  gap: 24px;
-  flex-wrap: wrap;
-  margin: 14px 0;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.link {
+.contactList p,
+.contactList a {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  line-height: 1.5;
+  margin: 0;
   transition: color 0.2s;
 }
-
-.link:hover {
+.contactList a:hover {
   color: white;
+}
+
+.colTitle {
+  font-size: 11px;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  margin-bottom: 14px;
+  margin-top: 0;
+}
+
+.colNav {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.colNavLink {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  transition: color 0.2s;
+  line-height: 1;
+}
+.colNavLink:hover {
+  color: white;
+}
+
+.gmb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 10px 12px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.gmb:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.gmb > span {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.gmb strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 2px;
+}
+.gmb p {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0;
+}
+
+.mapWrap {
+  width: 100%;
+  height: 180px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .divider {
   border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 18px;
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.legalLinks {
+  display: flex;
+  gap: 18px;
+}
+
+.legalLink {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.3);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s;
+}
+.legalLink:hover {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .copy {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.4);
-}
-.mapContainer {
-  margin: 32px auto;
-  max-width: 100%;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.3);
 }
 
-.gmbLink {
-  margin: 20px 0 30px;
-  text-align: center;
+/* Tablet */
+@media (max-width: 1024px) {
+  .inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
 }
 
-.gmbButton {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #4285f4;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 15px;
-  transition: all 0.3s;
-  box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
-}
-
-.gmbButton:hover {
-  background: #3367d6;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(66, 133, 244, 0.4);
-}
-
-/* Existing styles remain the same */
-.footer {
-  background: #0a1628;
-  padding: 48px 5% 32px;
-  text-align: center;
-}
-
-.top {
-  margin-bottom: 16px;
-}
-
-.logoName {
-  font-family: var(--font-serif);
-  font-size: 22px;
-  font-weight: 700;
-  color: white;
-}
-
-.address {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.6);
-  margin-top: 8px;
-  line-height: 1.4;
-}
-
-/* ... keep your existing .links, .link, .divider, .copy styles ... */
-/* Social Media Styles */
-.socialContainer {
-  margin: 30px 0;
-}
-
-.socialTitle {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 14px;
-  margin-bottom: 12px;
-  font-weight: 500;
-}
-
-.socialLinks {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-}
-
-.socialIcon {
-  color: rgba(255, 255, 255, 0.6);
-  transition: all 0.3s ease;
-  padding: 10px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.socialIcon:hover {
-  color: white;
-  background: rgba(255, 255, 255, 0.15);
-  transform: translateY(-3px);
+/* Mobile */
+@media (max-width: 600px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer {
+    padding: 44px 5% 20px;
+  }
 }
