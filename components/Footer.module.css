@@ -177,3 +177,39 @@
     padding: 44px 5% 20px;
   }
 }
+/* Add this to your existing Footer.module.css file */
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.socials a {
+  color: rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    color 0.2s,
+    transform 0.2s;
+}
+
+.socials a:hover {
+  color: #3b82f6; /* Beautiful clean active blue match */
+  transform: translateY(-2px);
+}
+
+/* Tablet & Mobile alignment fixes inside your existing media rules */
+@media (max-width: 600px) {
+  .bottom {
+    flex-direction: column;
+    align-items: center; /* Center layout cleanly on mobile screen widths */
+    text-align: center;
+    gap: 20px;
+  }
+  .socials {
+    justify-content: center;
+    width: 100%;
+  }
+}
